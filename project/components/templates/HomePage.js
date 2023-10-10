@@ -4,6 +4,7 @@ import Attributes from '../modules/Attributes';
 import Definition from '../modules/Definition';
 import styles from './HomePage.module.css';
 import Companies from '../modules/Companies';
+import Instruction from '../modules/Instruction';
 
 const HomePage = () => {
     return (
@@ -12,6 +13,7 @@ const HomePage = () => {
            <Attributes/> 
            <Definition/>
            <Companies/>
+           <Instruction/>
         </div>
     );
 };
