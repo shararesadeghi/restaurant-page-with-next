@@ -7,7 +7,7 @@ const Layout = ({children}) => {
         <>
          <header className={styles.header}>
              <div className={styles.left}>
-                 <Link href="/">Restaurant</Link>
+                 <Link href="/">VihanFood</Link>
              </div>
              <div className={styles.right}>
                  <Link href="/menu">Menu</Link>
