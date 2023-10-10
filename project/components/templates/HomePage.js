@@ -5,6 +5,7 @@ import Definition from '../modules/Definition';
 import styles from './HomePage.module.css';
 import Companies from '../modules/Companies';
 import Instruction from '../modules/Instruction';
+import Guide from '../modules/Guide';
 
 const HomePage = () => {
     return (
@@ -14,6 +15,7 @@ const HomePage = () => {
            <Definition/>
            <Companies/>
            <Instruction/>
+           <Guide/>
         </div>
     );
 };
