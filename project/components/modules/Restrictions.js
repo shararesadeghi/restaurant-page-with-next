@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from 'Restrictions.module.css';
+import styles from './Restrictions.module.css';
 
 const Restrictions = () => {
     return (
@@ -10,7 +10,8 @@ const Restrictions = () => {
         permitted by their agreement with Uber. A merchant cannot offer
         specially regulated or illicit items, like cannabidiol (CBD) and
         tetrahydrocannabinol (THC), on their Uber Eats menu.
-      </p> 
+      </p>
+ 
         </div>
     );
 };
