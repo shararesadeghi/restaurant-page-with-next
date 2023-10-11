@@ -14,7 +14,7 @@ const Card = (props) => {
                 <h4>{name}</h4>
                 <div>
                     <Location/>
-                    {details[0].cuisine}
+                    {details[0].Cuisine}
                 </div>
             </div>
             <div className={styles.price}>
