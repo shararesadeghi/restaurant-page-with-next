@@ -6,6 +6,7 @@ import styles from './HomePage.module.css';
 import Companies from '../modules/Companies';
 import Instruction from '../modules/Instruction';
 import Guide from '../modules/Guide';
+import Restrictions from '../modules/Restrictions';
 
 const HomePage = () => {
     return (
@@ -16,6 +17,7 @@ const HomePage = () => {
            <Companies/>
            <Instruction/>
            <Guide/>
+           <Restrictions/>
         </div>
     );
 };
