@@ -1,36 +1,60 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import {useRouter} from 'next/router';
+import Card from '../modules/Card';
 import styles from './CategoriesPage.module.css';
 
-const CategoriesPage = () => {
+const CategoriesPage = ({data}) => {
     const router = useRouter();
 
-    const [query, setQuery] = useState({difficulty:"", time:""});
+  const [query, setQuery] = useState({ difficulty: "", time: "" });
 
-    const changeHandler = event=>{
-        setQuery({...query,[event.target.name]:event.target.value})
-    }
+  useEffect(()=>{
+      const {difficulty, time} = router.query;
+      if(query.difficulty !== difficulty || query.time !== time){
+          setQuery({difficulty, time});
+      }
+  },[])
 
-    const searchHandler = ()=>{
-        router.push({pathname:"/categories", query})
-    }
+  const changeHandler = (e) => {
+    setQuery({ ...query, [e.target.name]: e.target.value });
+  };
+
+  const searchHandler = () => {
+    router.push({
+      pathname: "/categories",
+      query,
+    });
+  };
+
     return (
         <div className={styles.container}>
            <h2>Categories</h2>
            <div className={styles.subContainer}>
-               <div className={styles.select}>
-                   <select value={query.difficulty} name="difficulty" onChange={changeHandler}>
-                       <option vlaue="">Difficulty</option>
-                       <option vlaue="Esay">Easy</option>
-                       <option vlaue="Medium">Medium</option>
-                       <option vlaue="Hard">Hard</option>
-                   </select>
-                   <select value={query.time} name="time" onChange={changeHandler}>
-                       <option value="">Cooking Time</option>
-                       <option vlau="more">More than 30 min </option>
-                       <option vlaue="less">Less than 30 min</option>
-                   </select>
-                   <button onClick={searchHandler}>Search</button>
+        <div className={styles.select}>
+          <select
+            value={query.difficulty}
+            name="difficulty"
+            onChange={changeHandler}
+          >
+            <option value="">Difficulty</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+          <select value={query.time} name="time" onChange={changeHandler}>
+            <option value="">Cooking Time</option>
+            <option value="more">More than 30 min</option>
+            <option value="less">Less than 30 min</option>
+          </select>
+          <button onClick={searchHandler}>Search</button>
+        </div>
+               <div className={styles.cards}>
+                   {
+                       !data.length ? <img src="/images/search.png" alt="Category"/> : null
+                   }
+                   {
+                       data.map(food => <Card key={food.id} {...food}/> )
+                   }
                </div>
            </div>
         </div>
